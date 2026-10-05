@@ -1,0 +1,14 @@
+package app.unpolished.inkbible
+
+import android.app.Application
+import app.unpolished.inkbible.data.AppContainer
+
+class InkBibleApplication : Application() {
+    lateinit var appContainer: AppContainer
+        private set
+
+    override fun onCreate() {
+        super.onCreate()
+        appContainer = AppContainer(this)
+    }
+}

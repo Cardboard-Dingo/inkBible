@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Pure White Background -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M0,0h108v108h-108z" />
+
+    <!-- Crisp E-Ink Inner Border -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.5"
+        android:pathData="M20,20h68v68h-68z" />
+
+    <!-- Open Bible Base Shadow / Spine Backing -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M54,65 Q40,59 22,63 L22,75 Q40,71 54,77 Q68,71 86,75 L86,63 Q68,59 54,65 Z" />
+
+    <!-- Left Book Page -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#000000"
+        android:strokeWidth="2"
+        android:pathData="M54,63 Q40,57 24,61 L24,71 Q40,67 54,73 Z" />
+
+    <!-- Right Book Page -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#000000"
+        android:strokeWidth="2"
+        android:pathData="M54,63 Q68,57 84,61 L84,71 Q68,67 54,73 Z" />
+
+    <!-- Book Center Spine Line -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="2"
+        android:pathData="M54,63 L54,73" />
+
+    <!-- Scripture Text Lines on Left Page -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.5"
+        android:pathData="M30,63 Q38,61 46,64 M30,67 Q38,65 46,68" />
+
+    <!-- Scripture Text Lines on Right Page -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#000000"
+        android:strokeWidth="1.5"
+        android:pathData="M62,64 Q70,61 78,63 M62,68 Q70,65 78,67" />
+
+    <!-- Cross Outer White Glow / Outline -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="4"
+        android:pathData="M48,20 L60,20 L60,34 L74,34 L74,46 L60,46 L60,68 L48,68 L48,46 L34,46 L34,34 L48,34 Z" />
+
+    <!-- Cross Solid Pure Black Fill -->
+    <path
+        android:fillColor="#000000"
+        android:pathData="M49,21 L59,21 L59,35 L73,35 L73,45 L59,45 L59,67 L49,67 L49,45 L35,45 L35,35 L49,35 Z" />
+
+    <!-- Cross Inner Crisp White Lines Motif -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2"
+        android:pathData="M54,24 L54,64 M38,40 L70,40" />
+
+    <!-- Cross Center Diamond Accent -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,37 L57,40 L54,43 L51,40 Z" />
+
+</vector>
