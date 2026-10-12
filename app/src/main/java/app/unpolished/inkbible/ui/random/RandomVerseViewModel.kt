@@ -52,7 +52,7 @@ class RandomVerseViewModel(
                     bookName = bookName,
                     testament = bookTestament
                 )
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 _uiState.value = RandomVerseUiState.Error(e.message ?: "Failed to fetch random verse")
             }
         }

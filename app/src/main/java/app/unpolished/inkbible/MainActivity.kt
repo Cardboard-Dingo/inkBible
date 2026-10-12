@@ -14,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.ui.NavDisplay
+import app.unpolished.inkbible.data.AppContainer
 import app.unpolished.inkbible.ui.InkBibleViewModelFactory
 import app.unpolished.inkbible.ui.navigation.BibleNavigationScreen
 import app.unpolished.inkbible.ui.navigation.BibleNavigationViewModel
@@ -32,7 +33,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val appContainer = (application as InkBibleApplication).appContainer
+        val appContainer = (application as? InkBibleApplication)?.appContainer
+            ?: AppContainer(applicationContext)
         val viewModelFactory = InkBibleViewModelFactory(appContainer.bibleRepository)
 
         setContent {

@@ -40,7 +40,7 @@ class BibleNavigationViewModel(
                     selectedBook = selectedBook,
                     searchQuery = query
                 )
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 _uiState.value = BibleNavigationUiState.Error(e.message ?: "Failed to load Bible books")
             }
         }

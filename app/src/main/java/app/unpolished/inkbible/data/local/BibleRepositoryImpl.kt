@@ -153,17 +153,24 @@ class BibleRepositoryImpl(
     }
 
     private fun loadBooksFromAssets(): List<Book> {
-        val jsonString = assetOpener("bible/books.json").use { inputStream ->
-            inputStream.bufferedReader().use { it.readText() }
-        }.removePrefix("\uFEFF")
-        val bookJsons = bookListAdapter.fromJson(jsonString) ?: emptyList()
-        return bookJsons.map { json ->
-            Book(
-                id = json.id,
-                name = json.name,
-                testament = Testament.valueOf(json.testament),
-                chapterCount = json.chapterCount
-            )
+        return try {
+            val jsonString = assetOpener("bible/books.json").use { inputStream ->
+                inputStream.bufferedReader().use { it.readText() }
+            }.removePrefix("\uFEFF")
+            val bookJsons = bookListAdapter.fromJson(jsonString) ?: emptyList()
+            bookJsons.map { json ->
+                val testamentEnum = Testament.entries.firstOrNull {
+                    it.name.equals(json.testament, ignoreCase = true)
+                } ?: Testament.OT
+                Book(
+                    id = json.id,
+                    name = json.name,
+                    testament = testamentEnum,
+                    chapterCount = json.chapterCount
+                )
+            }
+        } catch (_: Exception) {
+            emptyList()
         }
     }
 

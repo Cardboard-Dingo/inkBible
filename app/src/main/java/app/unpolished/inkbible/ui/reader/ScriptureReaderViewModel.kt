@@ -28,7 +28,7 @@ class ScriptureReaderViewModel(
             try {
                 val position = bibleRepository.readingPosition.first()
                 loadChapter(position.bookId, position.chapterNumber, position.verseNumber)
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 _uiState.value = ScriptureReaderUiState.Error(e.message ?: "Failed to load reading position")
             }
         }
@@ -58,7 +58,11 @@ class ScriptureReaderViewModel(
                 val newPosition = ReadingPosition(book.id, validChapterNumber, validVerseNumber)
 
                 // Save reading position in DataStore
-                bibleRepository.saveReadingPosition(newPosition)
+                try {
+                    bibleRepository.saveReadingPosition(newPosition)
+                } catch (_: Throwable) {
+                    // Ignore error saving preference so app continues
+                }
 
                 val canGoPrev = (validChapterNumber > 1) || (bookIndex > 0)
                 val canGoNext = (validChapterNumber < book.chapterCount) || (bookIndex < books.size - 1)
@@ -74,7 +78,7 @@ class ScriptureReaderViewModel(
                     canGoToNextChapter = canGoNext,
                     readingPosition = newPosition
                 )
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 _uiState.value = ScriptureReaderUiState.Error(e.message ?: "Failed to load chapter")
             }
         }
